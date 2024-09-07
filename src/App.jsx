@@ -1,29 +1,28 @@
-import { useState } from 'react';
+import './App.css';
 import {
   createBrowserRouter,
   RouterProvider,
-} from 'react-router-dom';
-import Home from '../components/Home.jsx';
-import './App.css';
-import Navbar from '../components/Navbar.jsx';
+} from "react-router-dom"; //need to use latest version of react-router-dom
+import Home from '../components/Home';
+import Navbar from '../components/Navbar';
+import About from '../components/About';
+import NoteState from '../context/notes/NoteState'
 function App() {
-  /*const router = createBrowserRouter([
+  let router = createBrowserRouter([
     {
-      path: "/Home",
-      element: <Home />
+      path: "/Home" ,
+      element: <><Navbar />< Home /></>
     },
     {
       path: "/About",
-      element: <About />
-    },
-
-  ])*/
+      element: <><Navbar />< About /></>
+    }
+  ])
   return (
     <>
-    <div className="content">
-      <h1>Hello World</h1>
-      < RouterProvider router={router} />
-      </div>
+      <NoteState>
+        <RouterProvider router={router} />
+      </NoteState>
     </>
   )
 }
