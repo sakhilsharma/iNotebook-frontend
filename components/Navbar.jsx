@@ -1,29 +1,32 @@
-import { Link } from 'react-router-dom';
-import Home from '../components/Home';
-import Navbar from '../components/Navbar';
-export default function Navabr() {
+import React from 'react';
+import { useLocation, Link } from 'react-router-dom';
+export default function Navbar() {
+    let location = useLocation();
+    React.useEffect(() => {
+        console.log(location);
+    }, [location]); //provide location related information for currunt object/url
     return (
-        <div className='w-[80%]  position-relative '>
-            <nav class="navbar navbar-expand-lg bg-body-tertiary">
-                <div class="container-fluid">
-                    <Link className="navbar-brand" to="#">Navbar</Link>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
+        <nav className="navbar navbar-expand-lg navbar-dark bg-dark d-flex w-[100vw]">
+            <div className='  position-relative ' >
+                <div className="container-fluid w-[100] d-flex">
+                    <a className="navbar-brand" >iNotebook</a>
+                    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span className="navbar-toggler-icon"></span>
                     </button>
-                    <div class="collapse navbar-collapse" id="navbarNav">
-                        <ul class="navbar-nav">
-                            <li class="nav-item">
-                                <Link className="nav-link active" aria-current="page" to="/Home">Home</Link>
+                    <div className="collapse navbar-collapse" id="navbarNav">
+                        <ul className="navbar-nav">
+                            <li className="nav-item">
+                                <Link className={`nav-link ${location.pathname === "/Home"? "active":""}`} aria-current="page" to="/Home">Home</Link>
                             </li>
-                            <li class="nav-item">
-                                <Link className="nav-link active" to="/About">About</Link>
+                            <li className="nav-item">
+                                <Link className={`nav-link ${location.pathname === "/About"? "active":""}`} to="/About">About</Link>
                             </li>
 
                         </ul>
                     </div>
                 </div>
-            </nav>
-        </div>
 
+            </div >
+        </nav>
     )
 }
