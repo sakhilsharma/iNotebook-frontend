@@ -6,12 +6,13 @@ import {
 import Home from '../components/Home';
 import Navbar from '../components/Navbar';
 import About from '../components/About';
-import NoteState from '../context/notes/NoteState'
+import NoteState from '../context/notes/NoteState';
+import Alert from '../components/Alert.jsx';
 function App() {
   let router = createBrowserRouter([
     {
       path: "/Home" ,
-      element: <><Navbar />< Home /></>
+      element: <><Navbar /> <Alert message="This is amazing developing"/>< Home /></>
     },
     {
       path: "/" ,
