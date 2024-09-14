@@ -2,13 +2,13 @@
 import React, { useContext } from 'react'; //to use context api
 import NoteContext from '../context/notes/noteContext';
 import Noteitem from './Noteitem.jsx';
-import AddNote from './addNote.jsx';
+import AddingNote from './AddingNote.jsx';
 export default function Notes() {
     const context = useContext(NoteContext);
-    const { notes, addNote } = context; //destructuring
+    const { notes, addNote } = context;
     return (
         <>
-        <AddNote />
+            < AddingNote />
             <div className="row my-3">
                 <h2>Notes here:</h2>
                 {
@@ -17,5 +17,6 @@ export default function Notes() {
                     })
                 }
             </div>
-        </>)
+        </>
+    )
 }

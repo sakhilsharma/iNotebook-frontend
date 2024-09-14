@@ -1,12 +1,16 @@
-import React, { useContext } from 'react'; //to use context api
+import React, { useContext, useState } from 'react'
 import NoteContext from '../context/notes/noteContext';
-import AddNote from './addNote';
+import Notes from './Notes.jsx';
 
 export default function Home() {
+
     const context = useContext(NoteContext);
+    const addNote = context.addNote;
+
     return (
         <>
-           <AddNote/>
+            <Notes />
         </>
+
     )
 }
