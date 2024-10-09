@@ -5,7 +5,7 @@ import Notes from './Notes.jsx';
 export default function Home() {
 
     const context = useContext(NoteContext);
-    const addNote = context.addNote;
+    const { addNote } = context;
 
     return (
         <>

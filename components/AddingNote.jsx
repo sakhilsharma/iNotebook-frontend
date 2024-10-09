@@ -10,7 +10,7 @@ const AddingNote = () => {
   function handleClick(e) {
     e.preventDefault();
    addNote(note);
-   console.log(note);
+   console.log(note._id);
    }
   return (
     <div className="container my-3">
@@ -24,6 +24,7 @@ const AddingNote = () => {
           <label htmlFor="description" className="form-label">Description</label>
           <input type="text" className="form-control" id="description" name="description" onChange={OnChange}></input>
         </div>
+        
         
         <button type="submit" className="btn btn-primary" onClick={handleClick}>Add Note</button>
       </form>
